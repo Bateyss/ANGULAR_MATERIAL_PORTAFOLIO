@@ -1,0 +1,14 @@
+<mat-tree [treeControl]="menuControl" [dataSource]="menuDataSource">
+    <mat-tree-node *matTreeNodeDef="let node" matTreeNodePadding >
+        <mat-checkbox (change)="checked(node)" [(ngModel)]="node.chequeado">{{node.nombre}}</mat-checkbox>
+    </mat-tree-node>
+
+    <mat-tree-node *matTreeNodeDef="let node; when: hasChild" matTreeNodePadding>
+        <button mat-icon-button matTreeNodeToggle [attr.aria-label]="'Toggle ' + node.nombre">
+            <mat-icon>
+                {{menuControl.isExpanded(node) ? 'expand_more' : 'chevron_right'}}
+            </mat-icon>
+        </button>
+        {{node.nombre}}
+    </mat-tree-node>
+</mat-tree>

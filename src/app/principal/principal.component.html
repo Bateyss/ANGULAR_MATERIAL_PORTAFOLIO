@@ -1,0 +1,9 @@
+
+<h1 [style.textAlign]="'center'">Ventas</h1>
+
+<div class="products-panel">
+    <app-filtros class="product-cart-list-filter" [marcasList]="marcasList"
+        [subCategoriasList]="subCategoriasList"  (filtrosEvent)="agregarFiltro($event)"></app-filtros>
+
+    <app-product-card class="product-cart-list" [productList]="productList"></app-product-card>
+</div>

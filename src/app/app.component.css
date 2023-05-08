@@ -1,0 +1,26 @@
+/* general css */
+
+.margin-one {
+    margin: 0.5vw;
+}
+
+.invert {
+    filter: invert(1);
+}
+
+.text-color-invert {
+    filter: invert(1);
+}
+
+.text-center{
+    text-align: center;
+}
+
+.text-end{
+    text-align: right;
+}
+
+.text-size-x2{
+    font-size:  200%;
+    font-weight: bold;
+}

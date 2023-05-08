@@ -1,0 +1,45 @@
+<div class="product-cart-list" id="producCartList" #producCartList (window:resize)="applyResize(producCartList)" (window:load)="applyResize(producCartList)">
+    <mat-card *ngFor="let datos of productList" class="tienda-card-product">
+        <mat-card-content>
+            <div class="tienda-card-product-img">
+                <img *ngIf="datos.productImgUrl=='2'" class="tienda-card-product-img" mat-card-image
+                    src="\assets\images\imagenuno.png" alt="Photo of a Shiba Inu" width="100%">
+                <img *ngIf="datos.productImgUrl=='1'" class="tienda-card-product-img" mat-card-image
+                    src="\assets\images\imagendos.png" alt="Photo of a Shiba Inu" width="100%">
+            </div>
+            <div class="tienda-card-product-title text-color-invert">{{datos.productName}}</div>
+            <div class="text-color-invert text-end text-size-x2">{{datos.productPrice |
+                currency}}
+            </div>
+            <div *ngIf="datos.hasDescuento" class="text-color-invert text-end">
+                NORMAL
+                {{datos.productOfertRealPrice | currency}}</div>
+            <mat-divider *ngIf="datos.hasDescuento"></mat-divider>
+            <div *ngIf="datos.hasDescuento" class="text-color-invert text-end">
+                {{datos.productOfertPercent }}% off =
+                {{datos.productOfertCuantity | currency}}</div>
+            <div *ngIf="datos.hasDescuento" class="text-color-invert ">valido del
+                {{datos.productOfertIniDate|date:'dd-MMMM-yyyy'}} al
+                {{datos.productOfertFinDate|date:'dd-MMMM-yyyy'}}</div>
+            <div class="text-color-invert text-center">unidad: {{datos.productUnity}}</div>
+            <div class="text-center">
+                <form>
+                    <mat-form-field class="tienda-card-product-addtocart-cuanty-input" color="accent"
+                        appearance="outline">
+                        <button (click)="aumentraCantidad(datos)" mat-mini-fab color="accent" matPrefix><mat-icon
+                                aria-label="Aumentar">add</mat-icon></button>
+                        <button (click)="disminuirCantidad(datos)" mat-mini-fab color="accent" matPrefix><mat-icon
+                                aria-label="Disminuir">remove</mat-icon></button>
+                        <input matInput type="number" [min]="-1" [value]="datos.productAddtocardCuantity"
+                            (change)="cambiarCantidad($event,datos)" required>
+                        <button type="submit" mat-mini-fab [style.marginRight]="'1em'" color="accent"
+                            matSuffix><mat-icon aria-label="Agregar">add_shopping_cart</mat-icon></button>
+                    </mat-form-field>
+                </form>
+            </div>
+            <div class="text-color-invert text-center">{{datos.productCode}}</div>
+            <div class="text-color-invert text-center">{{datos.productDisponibility}}
+            </div>
+        </mat-card-content>
+    </mat-card>
+</div>
