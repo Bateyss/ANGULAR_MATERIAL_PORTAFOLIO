@@ -2,6 +2,7 @@ import { NgClass } from '@angular/common';
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Route, Router } from '@angular/router';
 import { ProductDto } from '../models/models';
+import { HttpContext } from '@angular/common/http';
 
 @Component({
   selector: 'app-product-card',
@@ -39,6 +40,12 @@ export class ProductCardComponent implements OnInit {
     if (size > 1920) templateGridCols = 'repeat(5, 1fr)';
     element?.style.setProperty('width', '100%');
     element?.style.setProperty('grid-template-columns', templateGridCols);
+  }
+
+  prepareSrcImagen(src: string) {
+    var urr = window.location.pathname;
+    var pathn = urr.substring(0, urr.lastIndexOf('/'));
+    return pathn + src;
   }
 
 }

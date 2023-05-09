@@ -3,9 +3,9 @@
         <mat-card-content>
             <div class="tienda-card-product-img">
                 <img *ngIf="datos.productImgUrl=='2'" class="tienda-card-product-img" mat-card-image
-                    src="/assets/images/imagenuno.png" alt="Photo of a Shiba Inu" width="100%">
+                    src="{{prepareSrcImagen('/assets/images/imagenuno.png')}}" alt="Photo of a Shiba Inu" width="100%">
                 <img *ngIf="datos.productImgUrl=='1'" class="tienda-card-product-img" mat-card-image
-                    src="\assets\images\imagendos.png" alt="Photo of a Shiba Inu" width="100%">
+                    src="{{prepareSrcImagen('/assets/images/imagendos.png')}}" alt="Photo of a Shiba Inu" width="100%">
             </div>
             <div class="tienda-card-product-title text-color-invert">{{datos.productName}}</div>
             <div class="text-color-invert text-end text-size-x2">{{datos.productPrice |
