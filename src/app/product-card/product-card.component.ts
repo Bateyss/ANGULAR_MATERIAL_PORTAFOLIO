@@ -45,7 +45,6 @@ export class ProductCardComponent implements OnInit {
   prepareSrcImagen(src: string) {
     var urr = window.location.pathname;
     var pathn = urr.substring(0, urr.lastIndexOf('/'));
-    console.log(pathn);
     return pathn + src;
   }
 
